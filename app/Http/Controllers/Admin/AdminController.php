@@ -14,6 +14,8 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
+    /*************************************/
+
     public function admin_login_info(AdminLoginValidation $request){
         //$data = $request->all();
         if(Auth::guard('admin')->attempt(
@@ -25,12 +27,20 @@ class AdminController extends Controller
         return redirect()->route('admin.login')->with(['error'=>'هناك خطا في بيانات الدخول']);
     }
 
+    /*************************************/
+
     public function get_dashboard(){
         return view('admin.dashboard');
     }
+
+    /*************************************/
 
     public function admin_logout(){
         Auth::guard('admin')->logout();
         return redirect()->route('admin.login');
     }
+
+    /*************************************/
+
+    
 }
