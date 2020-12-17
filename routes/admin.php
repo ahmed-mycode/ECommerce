@@ -13,18 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'guest:admin'], function (){
-    Route::get('login', 'AdminController@get_login_page')->name('admin.login');
-    Route::post('admin/login', 'AdminController@admin_login_info')->name('admin.info');
-});
+Route::group(['prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+], function () {
 
-Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'admin'], function (){
-    Route::get('dashboard', 'AdminController@get_dashboard')->name('dashboard');
-    Route::group(['prefix'=>'settings'], function(){
-        Route::get('shippings/{type}', 'AdminController@shipping_method')->name('shippings.methods');
-        Route::post('shippings/{id}', 'AdminController@shipping_edit_method')->name('shippings.edit');
+
+    Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'guest:admin'], function () {
+        Route::get('login', 'AdminController@get_login_page')->name('admin.login');
+        Route::post('admin/login', 'AdminController@admin_login_info')->name('admin.info');
     });
-    Route::get('logout', 'AdminController@admin_logout')->name('logout');
+
+    Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
+        Route::get('dashboard', 'AdminController@get_dashboard')->name('dashboard');
+
+        Route::group(['prefix' => 'settings'], function () {
+            Route::get('shippings/{type}', 'AdminController@shipping_method')->name('shippings.methods');
+            Route::post('shippings/{id}', 'AdminController@shipping_edit_method')->name('shippings.edit');
+        });
+
+        Route::get('logout', 'AdminController@admin_logout')->name('logout');
+    });
 });
 
 

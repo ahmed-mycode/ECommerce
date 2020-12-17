@@ -8,7 +8,6 @@
             <div class="content-body">
                 <div id="crypto-stats-3" class="row">
                     @foreach($data as $d)
-                    @endforeach
                         <form action="{{route('shippings.edit', $d->id)}}" method="post">
                             @csrf
                             <h3>تعديل وسيلة التوصيل</h3>
@@ -26,6 +25,7 @@
 
                             <button type="submit" class="btn btn-primary">تعديل</button>
                         </form>
+                    @endforeach
                 </div>
                 <!-- Candlestick Multi Level Control Chart -->
             </div>
