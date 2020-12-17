@@ -20,6 +20,10 @@ Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'guest:admi
 
 Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'admin'], function (){
     Route::get('dashboard', 'AdminController@get_dashboard')->name('dashboard');
+    Route::group(['prefix'=>'settings'], function(){
+        Route::get('shippings/{type}', 'AdminController@shipping_method')->name('shippings.methods');
+        Route::post('shippings/{id}', 'AdminController@shipping_edit_method')->name('shippings.edit');
+    });
     Route::get('logout', 'AdminController@admin_logout')->name('logout');
 });
 
