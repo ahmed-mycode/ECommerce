@@ -8,22 +8,39 @@
             <div class="content-body">
                 <div id="crypto-stats-3" class="row">
                     @foreach($data as $d)
-                        <form action="{{route('shippings.edit', $d->id)}}" method="post">
+                        <form action="{{route('shippings.edit', $d->id)}}" method="post" novalidate>
                             @csrf
-                            <h3>تعديل وسيلة التوصيل</h3>
+
+                            @if(Session::has('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{Session::get('success')}}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
+
+                            <h3>{{__('admin/sidebar.edit.shippings.methods')}}</h3>
+
                             <div class="mb-3">
-                                <label>الاسم</label>
-                                <input type="text" class="form-control" name="name" value="{{$d->value}}">
+                                <label>{{__('admin/sidebar.name')}}</label>
+                                <input type="text" class="form-control" name="value" value="{{$d->value}}">
                                 <!--<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>-->
+                                @error('value')
+                                <span class="text-danger">{{$message}}</span>
+                                @enderror
                             </div>
 
                             <div class="mb-3">
-                                <label>قيمة التوصيل</label>
-                                <input type="text" class="form-control" name="">
+                                <label>{{__('admin/sidebar.shipping.cost')}}</label>
+                                <input type="number" class="form-control" value="{{$d->plain_value}}" name="plain_value">
                                 <!--<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>-->
+                                @error('plain_value')
+                                <span class="text-danger">{{$message}}</span>
+                                @enderror
                             </div>
 
-                            <button type="submit" class="btn btn-primary">تعديل</button>
+                            <button type="submit" class="btn btn-primary">{{__('admin/sidebar.edit')}}</button>
                         </form>
                     @endforeach
                 </div>

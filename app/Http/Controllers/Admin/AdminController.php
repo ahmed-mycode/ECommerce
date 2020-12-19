@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ShippingValidation;
 use Illuminate\Http\Request;
 use App\Http\Requests\AdminLoginValidation;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Setting;
-
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -57,9 +58,22 @@ class AdminController extends Controller
 
     /*************************************/
 
-    public function shipping_edit_method(Request $request, $id)
+    public function shipping_edit_method(ShippingValidation $request, $id)
     {
-        return $request;
+        try {
+                $shipping_method = Setting::findOrFail($id);
+
+                DB::beginTransaction();
+                $shipping_method->update(['plain_value' => $request->input('plain_value')]);
+                $shipping_method->value = $request->input('value');
+                $shipping_method->save();
+                DB::commit();
+                return redirect()->back()-> with(['success'=> __('admin/sidebar.success')]);
+
+        }catch (\Exception $exception){
+            DB::rollBack();
+        }
+
     }
 
     /*************************************/
