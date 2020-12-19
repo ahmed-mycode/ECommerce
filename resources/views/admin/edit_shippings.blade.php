@@ -18,7 +18,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label>Email address</label>
+                                <label>قيمة التوصيل</label>
                                 <input type="text" class="form-control" name="">
                                 <!--<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>-->
                             </div>

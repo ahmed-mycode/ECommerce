@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="{{app()->getLocale() === 'ar' ? 'rtl' : 'ltr'}}">
 <head>
@@ -29,7 +28,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('admin/vendors/css/charts/chartist-plugin-tooltip.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/vendors/css/forms/toggle/bootstrap-switch.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/vendors/css/forms/toggle/switchery.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('admin/'.get_folder().'/core/menu/menu-types/vertical-menu.css')}}">
+    <link rel="stylesheet" type="text/css"
+          href="{{asset('admin/'.get_folder().'/core/menu/menu-types/vertical-menu.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/'.get_folder().'/pages/chat-application.css')}}">
     <!-- END VENDOR CSS-->
     <!-- BEGIN MODERN CSS-->
@@ -129,7 +129,7 @@
         setCurrentTime: false
     });
     $('#meridians2').timeDropper({
-        meridians: true,setCurrentTime: false
+        meridians: true, setCurrentTime: false
 
     });
     $('#meridians3').timeDropper({
@@ -141,35 +141,35 @@
         setCurrentTime: false
     });
     $('#meridians5').timeDropper({
-        meridians: true,setCurrentTime: false
+        meridians: true, setCurrentTime: false
 
     });
     $('#meridians6').timeDropper({
-        meridians: true,setCurrentTime: false
+        meridians: true, setCurrentTime: false
     });
     $('#meridians7').timeDropper({
-        meridians: true,setCurrentTime: false
+        meridians: true, setCurrentTime: false
     });
     $('#meridians8').timeDropper({
-        meridians: true,setCurrentTime: false
+        meridians: true, setCurrentTime: false
     });
     $('#meridians9').timeDropper({
-        meridians: true,setCurrentTime: false
+        meridians: true, setCurrentTime: false
     });
     $('#meridians10').timeDropper({
-        meridians: true,setCurrentTime: false
+        meridians: true, setCurrentTime: false
     });
     $('#meridians11').timeDropper({
-        meridians: true,setCurrentTime: false
+        meridians: true, setCurrentTime: false
     });
     $('#meridians12').timeDropper({
-        meridians: true,setCurrentTime: false
+        meridians: true, setCurrentTime: false
     });
     $('#meridians13').timeDropper({
-        meridians: true,setCurrentTime: false
+        meridians: true, setCurrentTime: false
     });
     $('#meridians14').timeDropper({
-        meridians: true,setCurrentTime: false
+        meridians: true, setCurrentTime: false
     });
 </script>
 

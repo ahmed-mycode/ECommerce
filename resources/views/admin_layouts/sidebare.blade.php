@@ -12,12 +12,8 @@
                         class="badge badge badge-info badge-pill float-right mr-2">5</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href=""
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
-                    </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                            متجر جديد </a>
-                    </li>
+                    <li class="active"><a class="menu-item" href="" data-i18n="nav.dash.ecommerce"> عرض الكل </a></li>
+                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافةمتجر جديد </a></li>
                 </ul>
             </li>
 
@@ -68,15 +64,17 @@
                 </ul>
             </li>
 
-            <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
-                                  data-i18n="nav.templates.main">{{__('admin/sidebar.settings')}}</span></a>
+            <li class=" nav-item"><a href="#"><i class="la la-television"></i>
+                    <span class="menu-title" data-i18n="nav.templates.main">{{__('admin/sidebar.settings')}}</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main">{{__('admin/sidebar.shippings.methods')}}</a>
+                    <li><a class="menu-item" href="#"
+                           data-i18n="nav.templates.vert.main">{{__('admin/sidebar.shippings.methods')}}</a>
                         <ul class="menu-content">
                             <li><a class="menu-item" href="{{route('shippings.methods', 'free')}}"
                                    data-i18n="nav.templates.vert.classic_menu">{{__('admin/sidebar.free.shipping')}}</a>
                             </li>
-                            <li><a class="menu-item" href="{{route('shippings.methods', 'inner')}}">{{__('admin/sidebar.local.shipping')}}</a>
+                            <li><a class="menu-item"
+                                   href="{{route('shippings.methods', 'inner')}}">{{__('admin/sidebar.local.shipping')}}</a>
                             </li>
                             <li><a class="menu-item" href="{{route('shippings.methods', 'outer')}}"
                                    data-i18n="nav.templates.vert.compact_menu">{{__('admin/sidebar.outer.shipping')}}</a>
