@@ -15,7 +15,7 @@
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     {{Session::get('success')}}
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
+                                        <span class="align-content-end" aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                             @endif
@@ -33,7 +33,8 @@
 
                             <div class="mb-3">
                                 <label>{{__('admin/sidebar.shipping.cost')}}</label>
-                                <input type="number" class="form-control" value="{{$d->plain_value}}" name="plain_value">
+                                <input type="number" class="form-control" value="{{$d->plain_value}}"
+                                       name="plain_value">
                                 <!--<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>-->
                                 @error('plain_value')
                                 <span class="text-danger">{{$message}}</span>
