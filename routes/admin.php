@@ -25,6 +25,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
     Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
         Route::get('dashboard', 'AdminController@get_dashboard')->name('dashboard');
+        Route::get('profile/{id}', 'AdminController@get_admin_profile')->name('admin.profile');
+        Route::post('edit/{id}', 'AdminController@edit_admin_profile')->name('admin.edit');
 
         Route::group(['prefix' => 'settings'], function () {
             Route::get('shippings/{type}', 'AdminController@shipping_method')->name('shippings.methods');

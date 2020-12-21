@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ShippingValidation;
 use Illuminate\Http\Request;
 use App\Http\Requests\AdminLoginValidation;
+use App\Http\Requests\AdminEditProfile;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Setting;
+use App\Models\Admin;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
@@ -77,6 +79,33 @@ class AdminController extends Controller
     }
 
     /*************************************/
+
+    public function get_admin_profile($id){
+
+        $data = Admin::findOrFail($id);
+        return view('admin.edit_admin_profile',compact('data'));
+    }
+
+    /*************************************/
+
+    public function edit_admin_profile(AdminEditProfile $request, $id){
+
+        try {
+            $admin = Admin::findOrFail($id);
+            $admin->update([
+                'name'  => $request->input('name'),
+                'email' => $request->input('email'),
+            ]);
+
+            return redirect()->back()-> with(['success'=> __('admin/sidebar.success')]);
+
+        }catch (\Exception $e){
+            DB::rollBack();
+        }
+    }
+
+    /*************************************/
+
 
     public function admin_logout()
     {
