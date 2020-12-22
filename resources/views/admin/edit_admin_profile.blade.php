@@ -20,6 +20,7 @@
                             @endif
 
                             <h3>{{__('admin/sidebar.admin.edit.profile')}}</h3>
+
                             <input type="hidden" name="id" value="{{$data->id}}">
 
                             <div class="mb-3">

@@ -27,6 +27,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('dashboard', 'AdminController@get_dashboard')->name('dashboard');
         Route::get('profile/{id}', 'AdminController@get_admin_profile')->name('admin.profile');
         Route::post('edit/{id}', 'AdminController@edit_admin_profile')->name('admin.edit');
+        Route::get('changepassword', 'AdminController@edit_admin_password_page')->name('edit.password.page');
+        Route::post('changepassword', 'AdminController@edit_admin_password')->name('edit.password');
+
 
         Route::group(['prefix' => 'settings'], function () {
             Route::get('shippings/{type}', 'AdminController@shipping_method')->name('shippings.methods');

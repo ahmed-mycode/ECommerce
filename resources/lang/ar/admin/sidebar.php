@@ -28,6 +28,13 @@ return [
     'admin.name'             => 'أسم المشرف',
     'admin.email'            => 'البريد الالكتروني',
 
+    'admin.edit.password'    => 'تغيير كلمة مرور المشرف',
+    'admin.edit.current'     => 'كلمة المرور الحالية',
+    'admin.edit.new'         => 'كلمة المرور الجديدة',
+    'admin.edit.confirm'     => 'اعادة كتابة كلمة المرور الجديدة',
+    'error.current'          => 'كلمة المرور خاطئة',
+    'error.confirm'          => 'كلمة المرور الجديدة لا تطابق التاكيد',
+
     'success'                => 'تم التعديل و الحفظ بنجاح',
 
 ];

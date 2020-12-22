@@ -5,7 +5,7 @@ return [
     'settings'               => 'Settings',
     'shippings.methods'      => 'Shipping Methods',
     'edit.shippings.methods' => 'Edit shipping methods',
-    'name' => 'Name',
+    'name'                   => 'Name',
     'shipping.cost'          => 'Shipping cost',
     'free.shipping'          => 'Free Shipping',
     'local.shipping'         => 'Local Shipping',
@@ -28,6 +28,14 @@ return [
     'admin.edit.profile'     => 'Edit Admin Information',
     'admin.name'             => 'Admin Name',
     'admin.email'            => 'Admin Email',
+
+    'admin.edit.password'    => 'Change Admin password',
+    'admin.edit.current'     => 'Current password',
+    'admin.edit.new'         => 'New password',
+    'admin.edit.confirm'     => 'Confirm',
+    'error.current'          => 'Incorrect current password',
+    'error.confirm'          => 'Current password and confirmation password does not match',
+
 
     'success'                => 'Modified and saved successfully',
 ];

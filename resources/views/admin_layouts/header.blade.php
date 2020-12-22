@@ -37,11 +37,17 @@
                             <span class="avatar avatar-online">
                   <img style="height: 35px;" src="{{asset('admin/images/avatar.jpg')}}" alt="avatar"><i></i></span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{route('admin.profile', Auth::guard('admin')->user()->id)}}"><i
-                                    class="ft-user"></i> تعديل الملف الشحصي </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="{{route('admin.profile', Auth::guard('admin')->user()->id)}}"><i class="ft-user"></i> تعديل الملف الشحصي </a>
+
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('logout')}}"><i class="ft-power"></i> تسجيل
-                                الخروج </a>
+
+                            <a class="dropdown-item" href="{{route('edit.password.page')}}"><i class="ft-user"></i> تغيير كلمة المرور </a>
+
+                            <div class="dropdown-divider"></div>
+
+                            <a class="dropdown-item" href="{{route('logout')}}"><i class="ft-power"></i> تسجيل الخروج </a>
+
                         </div>
                     </li>
                     <li class="dropdown dropdown-user nav-item">
