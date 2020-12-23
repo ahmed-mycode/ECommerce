@@ -115,17 +115,21 @@ class AdminController extends Controller
     /*************************************/
 
     public function edit_admin_password(Request $request){
+        try {
+            $adminData = Admin::findOrFail(Auth::guard('admin')->user()->id);
 
-        $adminData = Admin::findOrFail(Auth::guard('admin')->user()->id);
-
-        if(Hash::check($request->input('current'), $adminData->password)){
-            if($request->input('new') === $request->input('confirm')){
-                $newPassword = Hash::make($request->input('confirm'));
-                $adminData->update(['password'=>$newPassword]);
+            if(Hash::check($request->input('current'), $adminData->password)){
+                if($request->input('new') === $request->input('confirm')){
+                    $newPassword = Hash::make($request->input('confirm'));
+                    $adminData->update(['password'=>$newPassword]);
+                }else
+                    return redirect()->back()-> with(['error_confirm'=> __('admin/sidebar.error.confirm')]);
             }else
-                return redirect()->back()-> with(['error_confirm'=> __('admin/sidebar.error.confirm')]);
-        }else
-            return redirect()->back()-> with(['error_current'=> __('admin/sidebar.error.current')]);
+                return redirect()->back()-> with(['error_current'=> __('admin/sidebar.error.current')]);
+
+        }catch (\Exception $exception){
+            DB::rollBack();
+        }
 
         return redirect()->back()-> with(['success'=> __('admin/sidebar.success')]);
     }
