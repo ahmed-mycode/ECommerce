@@ -17,7 +17,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
 
-
+    #######################################  Admin Routes  #######################################
     Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'guest:admin'], function () {
         Route::get('login', 'AdminController@get_login_page')->name('admin.login');
         Route::post('admin/login', 'AdminController@admin_login_info')->name('admin.info');
@@ -37,6 +37,18 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         });
 
         Route::get('logout', 'AdminController@admin_logout')->name('logout');
+        #######################################  End Admin Routes  #######################################
+
+
+        #######################################  Categories Routes  #######################################
+        Route::get('categories', 'CategoryController@show_all_categories')->name('admin.categories');
+        Route::get('create/category/page', 'CategoryController@get_create_category_page')->name('admin.category.page');
+        Route::post('create/category', 'CategoryController@create_category')->name('admin.create.category');
+        Route::get('update/category/page/{id}', 'CategoryController@get_update_category_page')->name('admin.update.category.page');
+        Route::post('update/category/{id}', 'CategoryController@update_category')->name('admin.update.category');
+        Route::get('delete/category/{id}', 'CategoryController@delete_category')->name('admin.delete.category');
+
+        #######################################  End Categories Routes  ###################################
     });
 });
 

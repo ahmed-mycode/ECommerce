@@ -6,45 +6,39 @@
                         class="menu-title" data-i18n="nav.add_on_drag_drop.main">الرئيسية </span></a>
             </li>
 
-            <li class="nav-item"><a href=""><i class="la la-home"></i>
+            <li class="nav-item">
+                <a href=""><i class="la la-home"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">المتاجر </span>
-                    <span
-                        class="badge badge badge-info badge-pill float-right mr-2">5</span>
+                    <span class="badge badge badge-info badge-pill float-right mr-2">5</span>
                 </a>
                 <ul class="menu-content">
                     <li class="active"><a class="menu-item" href="" data-i18n="nav.dash.ecommerce"> عرض الكل </a></li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافةمتجر جديد </a></li>
+                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة متجر جديد </a></li>
                 </ul>
             </li>
 
 
-            <li class="nav-item"><a href=""><i class="la la-group"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الفرق </span>
-                    <span
-                        class="badge badge badge-danger badge-pill float-right mr-2"></span>
+            <li class="nav-item">
+                <a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">الاقســـــام الرئيسية </span>
+                    <span class="badge badge badge-danger badge-pill float-right mr-2"></span>
                 </a>
+
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href=""
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
-                    </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                            فريق </a>
-                    </li>
+                    <li class="active"><a class="menu-item" href="{{route('admin.categories')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a></li>
+                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة قسم رئيسي </a></li>
                 </ul>
             </li>
 
-            <li class="nav-item"><a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">المدربين  </span>
-                    <span
-                        class="badge badge badge-success badge-pill float-right mr-2"></span>
+            <li class="nav-item">
+                <a href=""><i class="la la-male"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">الاقســـــام الفرعية  </span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2"></span>
                 </a>
+
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href=""
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
-                    </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                            مدرب </a>
-                    </li>
+                    <li class="active"><a class="menu-item" href="" data-i18n="nav.dash.ecommerce"> عرض الكل </a></li>
+                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة قسم فرعي </a></li>
                 </ul>
             </li>
 
@@ -93,6 +87,7 @@
                     </li>
                 </ul>
             </li>
+
             <li class=" navigation-header">
                 <span data-i18n="nav.category.layouts">Layouts</span><i class="la la-ellipsis-h ft-minus"
                                                                         data-toggle="tooltip"

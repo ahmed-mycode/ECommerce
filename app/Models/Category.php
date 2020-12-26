@@ -14,7 +14,9 @@ class Category extends Model
     protected $fillable = ['parent_id', 'slug', 'is_active'];
 
     protected $with = ['translations'];
-    protected $hidden = ['translations'];
     protected $translatedAttributes = ['name'];
     protected $casts = ['is_active'=>'boolean'];
+
+    protected $hidden = ['translations'];
+
 }
