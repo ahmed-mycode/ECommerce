@@ -20,25 +20,25 @@
 
             <li class="nav-item">
                 <a href=""><i class="la la-group"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الاقســـــام الرئيسية </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/category.main.category')}}</span>
                     <span class="badge badge badge-danger badge-pill float-right mr-2"></span>
                 </a>
 
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="{{route('admin.categories')}}" data-i18n="nav.dash.ecommerce"> عرض الكل </a></li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة قسم رئيسي </a></li>
+                    <li class="active"><a class="menu-item" href="{{route('admin.categories')}}" data-i18n="nav.dash.ecommerce">{{__('admin/category.show.all.category')}}</a></li>
+                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">{{__('admin/category.add.new.section')}}</a></li>
                 </ul>
             </li>
 
             <li class="nav-item">
                 <a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الاقســـــام الفرعية  </span>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/category.subcategory')}}</span>
                     <span class="badge badge badge-success badge-pill float-right mr-2"></span>
                 </a>
 
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="" data-i18n="nav.dash.ecommerce"> عرض الكل </a></li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة قسم فرعي </a></li>
+                    <li class="active"><a class="menu-item" href="" data-i18n="nav.dash.ecommerce">{{__('admin/category.show.all.subcategory')}}</a></li>
+                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">{{__('admin/category.add.new.subcategory')}}</a></li>
                 </ul>
             </li>
 
