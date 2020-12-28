@@ -71,8 +71,9 @@ class CategoryController extends Controller
 
     ##########################################################################
 
-    public function delete_category(Request $request, $id)
+    public function delete_category($id)
     {
-
+        $category = Category::find($id);
+        $category->delete();
     }
 }
