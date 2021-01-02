@@ -49,6 +49,18 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('delete/category/{id}', 'CategoryController@delete_category')->name('admin.delete.category');
 
         #######################################  End Categories Routes  ###################################
+
+        #######################################  Subcategories Routes  #######################################
+        Route::group(['prefix'=>'subcategory'], function (){
+            Route::get('subcategories', 'SubCategoryController@show_all_subcategories')->name('admin.subcategories');
+            Route::get('create/subcategory/page', 'SubCategoryController@get_create_subcategory_page')->name('admin.subcategory.page');
+            Route::post('create/subcategory', 'SubCategoryController@create_subcategory')->name('admin.create.subcategory');
+            Route::get('update/subcategory/page/{id}', 'SubCategoryController@get_update_subcategory_page')->name('admin.update.subcategory.page');
+            Route::post('update/subcategory/{id}', 'SubCategoryController@update_subcategory')->name('admin.update.subcategory');
+            Route::get('delete/subcategory/{id}', 'SubCategoryController@delete_subcategory')->name('admin.delete.subcategory');
+        });
+
+        #######################################  End subcategories Routes  ###################################
     });
 });
 

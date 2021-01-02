@@ -17,33 +17,44 @@
                 </ul>
             </li>
 
-
+            <!--Main Categories-->
             <li class="nav-item">
                 <a href=""><i class="la la-group"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/category.main.category')}}</span>
-                    <span class="badge badge badge-danger badge-pill float-right mr-2"></span>
+                    <span class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\Category::all()->count()}}</span>
                 </a>
 
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="{{route('admin.categories')}}" data-i18n="nav.dash.ecommerce">{{__('admin/category.show.all.category')}}</a></li>
+                    <li class="active"><a class="menu-item" href="{{route('admin.categories')}}"
+                        data-i18n="nav.dash.ecommerce">{{__('admin/category.show.all.category')}}</a>
+                    </li>
+
                     <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">{{__('admin/category.add.new.section')}}</a></li>
                 </ul>
             </li>
+            <!--End Main Categories-->
 
+            <!--Subcategories-->
             <li class="nav-item">
                 <a href=""><i class="la la-male"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/category.subcategory')}}</span>
-                    <span class="badge badge badge-success badge-pill float-right mr-2"></span>
+                    <span class="badge badge badge-success badge-pill float-right mr-2">
+                        {{\App\Models\Category::whereNotNull('parent_id')->count()}}
+                    </span>
                 </a>
 
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="" data-i18n="nav.dash.ecommerce">{{__('admin/category.show.all.subcategory')}}</a></li>
+                    <li class="active">
+                        <a class="menu-item" href="{{route('admin.subcategories')}}" data-i18n="nav.dash.ecommerce">
+                            {{__('admin/category.show.all.subcategory')}}
+                        </a>
+                    </li>
                     <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">{{__('admin/category.add.new.subcategory')}}</a></li>
                 </ul>
             </li>
+            <!--End Subcategories-->
 
-
-            <li class="nav-item"><a href=""><i class="la la-male"></i>
+            <!--<li class="nav-item"><a href=""><i class="la la-male"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">الطلاب  </span>
                     <span
                         class="badge badge badge-warning  badge-pill float-right mr-2"></span>
@@ -56,7 +67,7 @@
                             طالب </a>
                     </li>
                 </ul>
-            </li>
+            </li>-->
 
             <li class=" nav-item"><a href="#"><i class="la la-television"></i>
                     <span class="menu-title" data-i18n="nav.templates.main">{{__('admin/sidebar.settings')}}</span></a>
@@ -87,8 +98,7 @@
                     </li>
                 </ul>
             </li>
-
-            <li class=" navigation-header">
+            <!--           <li class=" navigation-header">
                 <span data-i18n="nav.category.layouts">Layouts</span><i class="la la-ellipsis-h ft-minus"
                                                                         data-toggle="tooltip"
                                                                         data-placement="right"
@@ -1510,6 +1520,7 @@
                     <span class="menu-title" data-i18n="nav.support_documentation.main">Documentation</span>
                 </a>
             </li>
+        </ul>-->
         </ul>
     </div>
 </div>

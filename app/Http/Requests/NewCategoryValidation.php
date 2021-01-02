@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoryValidation extends FormRequest
+class NewCategoryValidation extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class CategoryValidation extends FormRequest
     {
         return [
             "name" => "required|regex:/^[\pL\s\-]+$/u",
-            "slug" => "required|unique:categories,slug,".$this->id
+            "slug" => "required|unique:categories,slug",
         ];
     }
 

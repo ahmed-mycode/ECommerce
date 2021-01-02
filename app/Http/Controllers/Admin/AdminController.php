@@ -64,16 +64,16 @@ class AdminController extends Controller
     public function shipping_edit_method(ShippingValidation $request, $id)
     {
         try {
-                $shipping_method = Setting::findOrFail($id);
+            $shipping_method = Setting::findOrFail($id);
 
-                DB::beginTransaction();
-                $shipping_method->update(['plain_value' => $request->input('plain_value')]);
-                $shipping_method->value = $request->input('value');
-                $shipping_method->save();
-                DB::commit();
-                return redirect()->back()-> with(['success'=> __('admin/sidebar.success')]);
+            DB::beginTransaction();
+            $shipping_method->update(['plain_value' => $request->input('plain_value')]);
+            $shipping_method->value = $request->input('value');
+            $shipping_method->save();
+            DB::commit();
+            return redirect()->back()->with(['success' => __('admin/sidebar.success')]);
 
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             DB::rollBack();
         }
 
@@ -81,57 +81,61 @@ class AdminController extends Controller
 
     /*************************************/
 
-    public function get_admin_profile($id){
+    public function get_admin_profile($id)
+    {
 
         $data = Admin::findOrFail($id);
-        return view('admin.edit_admin_profile',compact('data'));
+        return view('admin.edit_admin_profile', compact('data'));
     }
 
     /*************************************/
 
-    public function edit_admin_profile(AdminEditProfile $request, $id){
+    public function edit_admin_profile(AdminEditProfile $request, $id)
+    {
 
         try {
             $admin = Admin::findOrFail($id);
             $admin->update([
-                'name'  => $request->input('name'),
+                'name' => $request->input('name'),
                 'email' => $request->input('email'),
             ]);
 
-            return redirect()->back()-> with(['success'=> __('admin/sidebar.success')]);
+            return redirect()->back()->with(['success' => __('admin/sidebar.success')]);
 
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             DB::rollBack();
         }
     }
 
     /*************************************/
 
-    public function edit_admin_password_page(){
+    public function edit_admin_password_page()
+    {
 
         return view('admin.edit_admin_password');
     }
 
     /*************************************/
 
-    public function edit_admin_password(Request $request){
+    public function edit_admin_password(Request $request)
+    {
         try {
             $adminData = Admin::findOrFail(Auth::guard('admin')->user()->id);
 
-            if(Hash::check($request->input('current'), $adminData->password)){
-                if($request->input('new') === $request->input('confirm')){
+            if (Hash::check($request->input('current'), $adminData->password)) {
+                if ($request->input('new') === $request->input('confirm')) {
                     $newPassword = Hash::make($request->input('confirm'));
-                    $adminData->update(['password'=>$newPassword]);
-                }else
-                    return redirect()->back()-> with(['error_confirm'=> __('admin/sidebar.error.confirm')]);
-            }else
-                return redirect()->back()-> with(['error_current'=> __('admin/sidebar.error.current')]);
+                    $adminData->update(['password' => $newPassword]);
+                } else
+                    return redirect()->back()->with(['error_confirm' => __('admin/sidebar.error.confirm')]);
+            } else
+                return redirect()->back()->with(['error_current' => __('admin/sidebar.error.current')]);
 
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             DB::rollBack();
         }
 
-        return redirect()->back()-> with(['success'=> __('admin/sidebar.success')]);
+        return redirect()->back()->with(['success' => __('admin/sidebar.success')]);
     }
 
     /*************************************/
