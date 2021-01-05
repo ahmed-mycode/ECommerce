@@ -1,10 +1,10 @@
 @extends('admin_layouts.admin_dashboard')
-@section('title', 'Create new category')
+@section('title', 'Create new Subcategory')
 @section('content')
     <div class="container-fluid">
         <div class="app-content content">
-            <a class="btn btn-success mt-2"
-               href="{{route('admin.categories')}}">{{__('admin/category.return.category')}}</a>
+            <a class="btn btn-primary mt-2"
+               href="{{route('admin.subcategories')}}">{{__('admin/category.return.subcategory')}}</a>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
@@ -24,15 +24,32 @@
                                     </button>
                                 </div>
                             @endif
-                            <div class="card-header">{{__('admin/category.new.category')}}</div>
+                            <div class="card-header">{{__('admin/category.new.subcategory')}}</div>
 
                             <div class="card-body">
-                                <form method="post" action="{{route('admin.create.category')}}" novalidate>
+                                <form method="post" action="{{route('admin.create.subcategory')}}" novalidate>
                                     @csrf
 
                                     <div class="form-group row">
-                                        <label for="name"
-                                               class="col-md-4 col-form-label text-md-right">{{__('admin/category.category.name')}}</label>
+                                        <label for="name" class="col-md-4 col-form-label text-md-right">{{__('admin/category.select.category.name')}}</label>
+
+                                        <div class="col-md-6">
+                                            <select name="parent_id" class="select2 form-control">
+                                                <optgroup label="{{__('admin/category.select.category.name')}}">
+                                                        @foreach($all_categories as $category)
+                                                            <option value="{{$category -> id }}">{{$category -> name}}</option>
+                                                        @endforeach
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                        @error('parent_id')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="name" class="col-md-4 col-form-label text-md-right">{{__('admin/category.subcategory.name')}}</label>
+
                                         <div class="col-md-6">
                                             <input id="name" type="text" class="form-control" name="name"
                                                    value="" required autocomplete="name" autofocus>

@@ -34,8 +34,8 @@
                                 <td>{{__('admin/category.inactive')}}</td>
                             @endif
                             <td>
-                                <a class="btn btn-outline-primary ml-2" href="{{route('admin.update.category.page', $s->id)}}">{{__('admin/category.edit')}}</a>
-                                <a class="btn btn-outline-danger ml-2" href="{{route('admin.delete.category', $s->id)}}">{{__('admin/category.delete')}}</a>
+                                <a class="btn btn-outline-primary ml-2" href="{{route('admin.update.subcategory.page', $s->id)}}">{{__('admin/category.edit')}}</a>
+                                <a class="btn btn-outline-danger ml-2" href="{{route('admin.delete.subcategory', $s->id)}}">{{__('admin/category.delete')}}</a>
                             </td>
                         </tr>
                     @endforeach
