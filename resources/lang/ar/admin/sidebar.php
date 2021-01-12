@@ -2,6 +2,7 @@
 
 return [
 
+    "home"                   => 'لوحة التحكم',
     'settings'               => 'الاعدادات',
     'shippings.methods'      => 'وسائل التوصيل',
     'edit.shippings.methods' => 'تعديل وسائل التوصيل',

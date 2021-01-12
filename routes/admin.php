@@ -50,7 +50,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
         #######################################  End Categories Routes  ###################################
 
-        #######################################  Subcategories Routes  #######################################
+        #######################################  Subcategories Routes  ####################################
         Route::group(['prefix'=>'subcategory'], function (){
             Route::get('subcategories', 'SubCategoryController@show_all_subcategories')->name('admin.subcategories');
             Route::get('create/subcategory/page', 'SubCategoryController@get_create_subcategory_page')->name('admin.subcategory.page');
@@ -59,8 +59,18 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             Route::post('update/subcategory/{id}', 'SubCategoryController@update_subcategory')->name('admin.update.subcategory');
             Route::get('delete/subcategory/{id}', 'SubCategoryController@delete_subcategory')->name('admin.delete.subcategory');
         });
+        #######################################  End subcategories Routes  ################################
 
-        #######################################  End subcategories Routes  ###################################
+        #######################################  Brands Routes  ####################################
+        Route::group(['prefix'=>'brand'], function (){
+            Route::get('all_brands', 'brandController@show_all_brands')->name('all.brands');
+            Route::get('create/page', 'brandController@create_brand_page')->name('create.brand.page');
+            Route::post('store', 'brandController@store_new_brand')->name('store.brand');
+            Route::get('update/brand/page/{id}', 'brandController@update_brand_page')->name('update.brand.page');
+            Route::post('update/{id}', 'brandController@update_brand')->name('update.brand');
+            Route::get('delete/{id}', 'brandController@delete_brand')->name('delete.brand');
+        });
+        #######################################  End brands Routes  ####################################
     });
 });
 

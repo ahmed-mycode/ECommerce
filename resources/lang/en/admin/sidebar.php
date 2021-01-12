@@ -2,6 +2,7 @@
 
 return [
 
+    "home"                   => 'Dashboard',
     'settings'               => 'Settings',
     'shippings.methods'      => 'Shipping Methods',
     'edit.shippings.methods' => 'Edit shipping methods',

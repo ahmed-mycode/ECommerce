@@ -17,7 +17,7 @@
                     <tr>
                         <th scope="col">{{__('admin/category.category.id')}}</th>
                         <th scope="col">{{__('admin/category.category.slug')}}</th>
-                        <th scope="col">{{__('admin/category.category.name')}}</th>
+                        <th scope="col">{{__('admin/category.subcategory.name')}}</th>
                         <th>{{__('admin/category.category.status')}}</th>
                         <th scope="col" class="text-center">{{__('admin/category.category.procedurse')}}</th>
                     </tr>
