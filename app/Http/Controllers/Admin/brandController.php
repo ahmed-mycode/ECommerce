@@ -105,6 +105,7 @@ class brandController extends Controller
             if(!$brand)
                 return redirect()->route('all.brands')->with(['error' => __('admin/brand.error.create')]);
 
+            $brand->deleteTranslations();
             $brand -> delete();
             return redirect()->route('all.brands')->with(['success' => __('admin/brand.success.delete')]);
 
