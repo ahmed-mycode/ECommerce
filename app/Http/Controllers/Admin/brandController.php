@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateBrandValidation;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 
 class brandController extends Controller
@@ -105,8 +106,9 @@ class brandController extends Controller
             if(!$brand)
                 return redirect()->route('all.brands')->with(['error' => __('admin/brand.error.create')]);
 
-            $brand->deleteTranslations();
+            Storage::disk('brands')->delete($brand->photo); //delete image from local disk (brands).
             $brand -> delete();
+            $brand->deleteTranslations();
             return redirect()->route('all.brands')->with(['success' => __('admin/brand.success.delete')]);
 
         }catch (\Exception $exception){
