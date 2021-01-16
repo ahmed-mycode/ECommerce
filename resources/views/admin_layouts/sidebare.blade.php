@@ -72,6 +72,24 @@
             </li>
             <!--End Brands-->
 
+            <!--Begin tags-->
+            <li class="nav-item">
+                <a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/tags.title')}}</span>
+                    <span class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\Tag::all()->count()}}</span>
+                </a>
+
+                <ul class="menu-content">
+                    <li class="active">
+                        <a class="menu-item" href="{{route('all.tags')}}" data-i18n="nav.dash.ecommerce">{{__('admin/tags.show.all')}}
+                        </a>
+                    </li>
+
+                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">{{__('admin/tags.new.tag')}}</a></li>
+                </ul>
+            </li>
+            <!--End tags-->
+
             <!--<li class="nav-item"><a href=""><i class="la la-male"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">الطلاب  </span>
                     <span

@@ -5,15 +5,14 @@ namespace App\Models;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
-class Brand extends Model
+class Tag extends Model
 {
     use Translatable;
 
-    protected $with = ['translations'];
-    protected $table = 'brands';
-    protected $fillable = ['photo', 'is_active'];
-    protected $translatedAttributes = ['name'];
-    protected $casts = ['is_active'=>'boolean'];
-    protected $hidden = ['translations'];
+    protected $table = 'tags';
+    protected $guarded = [];
 
+    protected $with = ['translations'];
+    protected $translatedAttributes = ['slug', 'name'];
+    protected $hidden = ['translations'];
 }

@@ -61,7 +61,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         });
         #######################################  End subcategories Routes  ################################
 
-        #######################################  Brands Routes  ####################################
+        #######################################  Brands Routes  ###########################################
         Route::group(['prefix'=>'brand'], function (){
             Route::get('all_brands', 'brandController@show_all_brands')->name('all.brands');
             Route::get('create/page', 'brandController@create_brand_page')->name('create.brand.page');
@@ -70,7 +70,21 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
             Route::post('update/{id}', 'brandController@update_brand')->name('update.brand');
             Route::get('delete/{id}', 'brandController@delete_brand')->name('delete.brand');
         });
-        #######################################  End brands Routes  ####################################
+        #######################################  End brands Routes  #######################################
+
+        #######################################  Tags Routes  ###########################################
+        Route::group(['prefix'=>'tag'], function (){
+            Route::get('all_tags', 'TagController@show_tags')->name('all.tags');
+            Route::get('create_tag_page', 'TagController@create_tag_page')->name('create.tag.page');
+            Route::post('create_tag', 'TagController@create_tag')->name('create.tag');
+            Route::get('update_tag_page/{id}', 'TagController@update_tag_page')->name('update.tag.page');
+            Route::post('update_tag/{id}', 'TagController@update_tag')->name('update.tag');
+            Route::get('delete_tag/{id}', 'TagController@delete_tag')->name('delete.tag');
+        });
+        #######################################  End tags Routes  ###########################################
+
+
+
     });
 });
 
